@@ -79,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'plataforma_ecommerce',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'USER': 'admin',
+        'PASSWORD': '8d9T7FeQ5RHRgHH',
+        'HOST': 'database-ecommerce.cwendf4lj2uc.us-east-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }
