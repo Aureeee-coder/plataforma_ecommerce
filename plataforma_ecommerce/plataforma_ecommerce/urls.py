@@ -19,6 +19,7 @@ from django.urls import path
 from app1 import views
 
 urlpatterns = [
+    path('', views.realizarCompra, name='inicio'),
     path('admin/', admin.site.urls),
     path('compra/', views.realizarCompra, name= 'realizar_compra')
 ]
