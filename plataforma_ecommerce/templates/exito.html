@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Compra Exitosa - Inacap</title>
+</head>
+<body>
+    <h1>¡Pedido Realizado con Éxito!</h1>
+    <p>El pedido N° <strong>{{ pedido_id }}</strong> ha sido registrado en la base de datos relacional (RDS).</p>
+    <p>Se ha enviado una notificación de evento a DynamoDB para el análisis de actividad.</p>
+    <br>
+    <a href="{% url 'realizar_compra' %}">Volver a realizar otra compra</a>
+</body>
+</html>

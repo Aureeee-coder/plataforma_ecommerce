@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Plataforma E-commerce - Inacap</title>
+</head>
+<body>
+    <h1>Realizar Pedido</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="cliente_id">ID del Cliente:</label><br>
+        <input type="number" id="cliente_id" name="cliente_id" required><br><br>
+
+        <h3>Productos</h3>
+        <p>Simulación de carrito de compras para el Escenario Integrador[cite: 184].</p>
+        
+        <button type="submit">Confirmar Compra</button>
+    </form>
+</body>
+</html>
