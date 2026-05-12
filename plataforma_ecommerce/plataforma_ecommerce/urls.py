@@ -19,7 +19,12 @@ from django.urls import path
 from app1 import views
 
 urlpatterns = [
-    path('', views.realizarCompra, name='inicio'),
+    path('', views.inicio, name='inicio'),
     path('admin/', admin.site.urls),
-    path('compra/', views.realizarCompra, name= 'realizar_compra')
+    path('clientes/crear/', views.crearCliente, name='crear_cliente'),
+    path('clientes/', views.listarClientes, name='listar_clientes'),
+    path('pedidos/crear/', views.crearPedido, name='crear_pedido'),
+    #path('compra/', views.realizarCompra, name= 'realizar_compra'),
+    path('pedidos/', views.listarPedidos, name='listar_pedidos'),
+    path('pedidos/<int:pedido_id>/', views.detallePedido, name='detalle_pedido'),
 ]

@@ -14,15 +14,15 @@ class Pedido(models.Model):
     cliente = models.ForeignKey(Client, on_delete=models.CASCADE) 
     
     def __str__(self):
-        return f"pedido {self.id} - {self.cliente.nombre}"
+        return f"pedido #{self.id} - {self.cliente.nombre}"
     
 
 
 class DetallePedido(models.Model):
-    pedido_id = models.ForeignKey(Pedido, on_delete=models.CASCADE)
+    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name='detalles')
     producto = models.CharField(max_length=100)
     cantidad = models.IntegerField()
 
 
     def __str__(self):
-        return f"{self.producto} - {self.cantidad}"    
+        return f"{self.producto}"    
