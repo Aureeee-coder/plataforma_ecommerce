@@ -79,7 +79,7 @@ def crearPedido(request):
     return render(request, 'crear_pedido.html', {'clientes': clientes})
 
 def listarPedidos(request):
-    pedidos = Pedido.objects.all().order_by('-fecha_creacion')
+    pedidos = Pedido.objects.all().order_by('-fecha')
     return render(request, 'listar_pedidos.html', {'pedidos': pedidos})
 
 def detallePedido(request, pedido_id):
