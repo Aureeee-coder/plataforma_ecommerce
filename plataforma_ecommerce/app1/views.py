@@ -6,7 +6,7 @@ from datetime import datetime
 # Create your views here.
 
 dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
-tabla = dynamodb.Table('eventoUsuario')
+tabla = dynamodb.Table('EventosUsuarios')
 
 def registrarEvento (userID, tipoEvento, metadatos=None):
     item = {'userID': str(userID),
