@@ -1,3 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}
+Listar Pedidos
+{% endblock %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,5 +28,6 @@
             <li>No hay pedidos registrados.</li>
         {% endfor %}
     </ul>
+    {% endblock %}
 </body>
 </html>
