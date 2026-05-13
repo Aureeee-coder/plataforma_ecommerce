@@ -3,13 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <title>Plataforma E-commerce - Inacap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
-<body>
-    <a href="{% url 'crear_cliente' %}">Crear Cliente</a><br>
-    <a href="{% url 'listar_clientes' %}">Ver Clientes</a><br>
-    <a href="{% url 'crear_pedido' %}">Crear Pedido</a><br>
-    <a href="{% url 'listar_pedidos' %}">Ver Pedidos</a><br>
+<body class="container mt-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4">Plataforma E-commerce - AWS</h1>
+        <p class="lead">
+            Arquitectura hibrida RDS con DyanamoDB
+        </p>
+    </div>
+    
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h3>Clientes</h3>
+                    <a href="{% url 'crear_cliente' %}" class="btn btn-primary">Crear Cliente</a><br>
+                    <a href="{% url 'listar_clientes' %}" class="btn btn-outline-primary">Ver Clientes</a><br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body text-center">
+                    <h3>Pedidos</h3>
+                    <a href="{% url 'realizar_compra' %}" class="btn btn-success">Realizar compra</a><br>
+                    <a href="{% url 'listar_pedidos' %}" class="btn btn-outline-success">Ver Pedidos</a><br>
+                </div>
+            </div>
+    </div>
+    </div>
 </body>
 </html>

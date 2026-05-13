@@ -62,7 +62,7 @@ def crearPedido(request):
                 pedido = Pedido.objects.create(cliente_id=cliente_id)
 
                 DetallePedido.objects.create(
-                            pedido=pedido.id,
+                            pedido=pedido,
                             producto=producto,
                             cantidad=cantidad,
                         )
@@ -87,9 +87,12 @@ def detallePedido(request, pedido_id):
     return render(request, 'detalle_pedido.html', {'pedido': pedido})
 
 def realizarCompra(request):
+    clientes = Client.objects.all()
+
     if request.method == 'POST':
         cliente_id = request.POST.get('cliente_id')
-        productos = [{'nombre': 'Producto A', 'cantidad': 2}]
+        producto = request.POST.get('producto')
+        cantidad = request.POST.get('cantidad')
 
         if not cliente_id:
                 return render(request, 'error.html', {'mensaje': 'Cliente ID es requerido.'})
@@ -98,18 +101,20 @@ def realizarCompra(request):
             with transaction.atomic():
                     nuevo_pedido = Pedido.objects.create(cliente_id=cliente_id)
 
-                    for p in productos:
-                        DetallePedido.objects.create(
-                            producto=p['nombre'],
-                            cantidad=p['cantidad'],
-                            pedido_id=nuevo_pedido.id
-                        )
+                    DetallePedido.objects.create(
+                        producto=producto,
+                        cantidad=cantidad,
+                        pedido_id=nuevo_pedido.id
+                    )
                     
-                    registrarEvento(cliente_id, "COMPRA_PRODUCTO")
+                    registrarEvento(cliente_id, "COMPRA_PRODUCTO",{
+                        'producto': producto,
+                        'cantidad': cantidad
+                    })
 
                     return render(request, 'exito.html', {'pedido_id': nuevo_pedido.id})
 
         except Exception as e:
                 return render(request, 'error.html', {'mensaje': str(e)})
 
-    return render(request, 'formulario_compra.html')
+    return render(request, 'formulario_compra.html', {'clientes': clientes})
