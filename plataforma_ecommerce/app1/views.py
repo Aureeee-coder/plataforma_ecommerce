@@ -108,8 +108,11 @@ def realizarCompra(request):
                     )
                     
                     registrarEvento(cliente_id, "COMPRA_PRODUCTO",{
+                        'pedido_id': nuevo_pedido.id,
                         'producto': producto,
-                        'cantidad': cantidad
+                        'cantidad': cantidad,
+                        'origen': 'Django EC2',
+                        'modulo': 'Pedidos'
                     })
 
                     return render(request, 'exito.html', {'pedido_id': nuevo_pedido.id})
